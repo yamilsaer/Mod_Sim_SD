@@ -1,0 +1,78 @@
+Root-Coordinator
+ {
+  Simulator
+   {
+    Path = curso/fuente.h
+    Parameters = 0.000000e+00,1.000000e+00,1.000000e+00
+   }
+  Simulator
+   {
+    Path = sinks/gnuplot.h
+    Parameters = 3.000000e+00,"set xrange [0:%tf+1] @ set grid @ set title 'Muestreador en cola'","with impulses title 'Jobs'","with points title 'Processor'","with steps title 'Cola'","",""
+   }
+  Simulator
+   {
+    Path = curso/filtro.h
+    Parameters = 
+   }
+    Coordinator
+     {
+      Simulator
+       {
+        Path = curso/procesador.h
+        Parameters = 
+       }
+      Simulator
+       {
+        Path = curso/cola.h
+        Parameters = 
+       }
+      Simulator
+       {
+        Path = curso/sensor.h
+        Parameters = 
+       }
+      EIC
+       {
+        (0,0);(2,0)
+        (0,0);(1,0)
+       }
+      EOC
+       {
+        (2,0);(0,1)
+        (0,0);(0,0)
+       }
+      IC
+       {
+        (1,0);(0,0)
+        (1,0);(2,1)
+        (0,0);(1,1)
+       }
+     }
+  Simulator
+   {
+    Path = sources\constant_sci.h
+    Parameters = "1"
+   }
+  Simulator
+   {
+    Path = curso/muestreador.h
+    Parameters = 1.000000e+00
+   }
+  EIC
+   {
+   }
+  EOC
+   {
+   }
+  IC
+   {
+    (0,0);(1,0)
+    (3,0);(1,1)
+    (2,0);(3,0)
+    (0,0);(2,0)
+    (4,0);(2,1)
+    (3,1);(5,0)
+    (5,0);(1,2)
+   }
+ }

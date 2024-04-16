@@ -1,0 +1,13 @@
+P0 = 1;
+[t,x] = sim_pob(@pob,P0,0,100);
+figure 1;
+plot(t,x);
+title ("Crecimiento de una población");
+xlabel ("Tiempo(día)");
+ylabel ("Cant. de individuos");
+[t,x] = sim_pob(@pob2,P0,0,100);
+figure 2;
+plot(t,x);
+title ("Crec. de una población con limitaciones ambientales");
+xlabel ("Tiempo(día)");
+ylabel ("Cant. de individuos");

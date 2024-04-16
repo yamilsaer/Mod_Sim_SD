@@ -1,0 +1,67 @@
+Coupled
+    {
+    Type = Root
+    Name = generador
+    Ports = 0; 0
+    Description = 
+    Graphic
+        {
+        Position = 0; 0
+        Dimension = 600; 600
+        Direction = Right
+        Color = 15
+        Icon = 
+        Window = 5000; 5000; 5000; 5000
+        }
+    Parameters
+        {
+        }
+    System
+        {
+        Atomic
+            {
+            Name = Generador
+            Ports = 1 ; 1
+            Path = generador/generador.h
+            Description = Atomic DEVS model
+            Graphic
+                {
+                Position = -780 ; -735
+                Dimension = 675 ; 720
+                Direction = Right
+                Color = 15
+                Icon = None
+                }
+            Parameters
+                {
+                }
+            }
+        Atomic
+            {
+            Name = To Workspace0
+            Ports = 1 ; 0
+            Path = sinks/toscilab_offline.h
+            Description = Sends input signal to Scilab Workspace
+            Graphic
+                {
+                Position = 2445 ; -555
+                Dimension = 675 ; 675
+                Direction = Right
+                Color = 15
+                Icon = %sources%workspace.bmp
+                }
+            Parameters
+                {
+                Time variable = Str; t ; 
+                Signal = Str; y ; 
+                }
+            }
+        Line
+            {
+            Source = Cmp ;  1 ;  1 ; 0
+            Sink = Cmp ;  2 ;  1 ; -1
+            PointX = 0 ; 2310 ; 2310
+            PointY = -375 ; -375 ; -225
+            }
+        }
+    }

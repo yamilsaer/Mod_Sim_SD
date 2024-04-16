@@ -1,0 +1,23 @@
+Root-Coordinator
+ {
+  Simulator
+   {
+    Path = generador/generador.h
+    Parameters = 
+   }
+  Simulator
+   {
+    Path = sinks/toscilab_offline.h
+    Parameters = "t","y"
+   }
+  EIC
+   {
+   }
+  EOC
+   {
+   }
+  IC
+   {
+    (0,0);(1,0)
+   }
+ }

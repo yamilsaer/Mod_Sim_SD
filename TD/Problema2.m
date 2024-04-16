@@ -1,0 +1,11 @@
+S0 = 1e6;
+I0 = 10;
+R0 = 0;
+x0 = [S0;I0;R0];
+[t,x] = sim_sir(@sir,x0,0,100);
+plot(t,x);
+title ("Modelo SIR Discreto");
+xlabel ("Tiempo(día)");
+ylabel ("Cant. de individuos");
+lines = {"Suceptibles","Infectados","Recuperados"};
+legend(lines);

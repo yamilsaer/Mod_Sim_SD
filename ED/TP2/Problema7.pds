@@ -1,0 +1,91 @@
+Root-Coordinator
+ {
+  Simulator
+   {
+    Path = curso/fuente.h
+    Parameters = 0.000000e+00,3.000000e+00,1.000000e+00
+   }
+  Simulator
+   {
+    Path = sinks/gnuplot.h
+    Parameters = 3.000000e+00,"set xrange [0:%tf+1] @ set grid @ set title 'Plot'","with impulses title 'Jobs'","with points title 'Processor'","with steps title 'Cola'","",""
+   }
+  Simulator
+   {
+    Path = curso/filtro.h
+    Parameters = 
+   }
+    Coordinator
+     {
+      Simulator
+       {
+        Path = curso/procesador.h
+        Parameters = 
+       }
+      Simulator
+       {
+        Path = curso/cola.h
+        Parameters = 
+       }
+      Simulator
+       {
+        Path = curso/sensor.h
+        Parameters = 
+       }
+      EIC
+       {
+        (0,0);(2,0)
+        (0,0);(1,0)
+       }
+      EOC
+       {
+        (2,0);(0,1)
+        (0,0);(0,0)
+       }
+      IC
+       {
+        (1,0);(0,0)
+        (1,0);(2,1)
+        (0,0);(1,1)
+       }
+     }
+  Simulator
+   {
+    Path = curso/muestreador.h
+    Parameters = 1.000000e+00
+   }
+  Simulator
+   {
+    Path = curso/controlador.h
+    Parameters = 5.000000e+01,2.000000e-02,1.000000e-03
+   }
+  Simulator
+   {
+    Path = sinks/gnuplot.h
+    Parameters = 1.000000e+00,"set xrange [0:%tf] @ set grid @ set title 'Tamano de la cola'","with steps title 'Cola'","","","",""
+   }
+  Simulator
+   {
+    Path = sinks/gnuplot.h
+    Parameters = 1.000000e+00,"set xrange [0:%tf] @ set grid @ set title 'Probabilidad del filtro'","with lines title 'Probabilidad'","","","",""
+   }
+  EIC
+   {
+   }
+  EOC
+   {
+   }
+  IC
+   {
+    (0,0);(1,0)
+    (3,0);(1,1)
+    (2,0);(3,0)
+    (0,0);(2,0)
+    (3,1);(4,0)
+    (5,0);(7,0)
+    (5,0);(2,1)
+    (4,0);(6,0)
+    (4,0);(5,0)
+    (4,0);(1,2)
+   }
+ }
